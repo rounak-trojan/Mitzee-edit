@@ -76,9 +76,10 @@ section{padding:95px 0}
 .design-scroll{position:relative;height:400vh;margin-top:10px}
 .design-sticky{position:sticky;top:82px;height:calc(100vh - 82px);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .design-sticky .grid{width:100%;height:100%;grid-template-columns:1fr;align-items:center;justify-items:center;position:relative}
-.design-sticky .card{width:min(520px,58vw);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);opacity:0;pointer-events:none;transition:opacity .45s ease,transform .6s cubic-bezier(.22,.8,.2,1)}
+.design-sticky .card{width:min(520px,48vw);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);opacity:0;pointer-events:none;transition:opacity .45s ease,transform .6s cubic-bezier(.22,.8,.2,1)}
 .design-sticky .card.active{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
-.design-sticky .card-img{height:min(58vh,520px)}
+.design-sticky .card-img{height:min(72vh,760px);padding:0;background:transparent;overflow:visible}
+.design-sticky .card-img img{object-fit:contain;object-position:center;width:100%;height:100%;display:block;transform:none!important}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;position:relative;transition:.35s;box-shadow:0 5px 20px rgba(154,124,147,.08)}
 .card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
 .card-img{height:350px;padding:10px;background:var(--dark);position:relative;overflow:hidden}
@@ -160,7 +161,7 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
 .quiz-restart{font-size:12px;text-decoration:underline;color:var(--muted);margin-top:10px;background:none;border:0}
 
 @media(max-width:950px){
- .design-scroll{height:400vh}.design-sticky{top:68px;height:calc(100vh - 68px)}.design-sticky .card{width:min(520px,78vw)}.design-sticky .card-img{height:min(55vh,480px)}
+ .design-scroll{height:400vh}.design-sticky{top:68px;height:calc(100vh - 68px)}.design-sticky .card{width:min(520px,72vw)}.design-sticky .card-img{height:min(68vh,620px);padding:0;background:transparent;overflow:visible}
  .links{display:none}.mobile{display:grid}.hero-grid,.story-grid,.newsletter{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.story{padding:45px}.footer-grid{grid-template-columns:1fr 1fr}.quiz-opts{gap:8px}
 }
 @media(max-width:600px){
