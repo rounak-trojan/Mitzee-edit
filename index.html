@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE MITZEE EDIT | Where Thoughts Matter.</title>
-<meta name="description" content="THE MITZEE EDIT - distinctive notepads and stationery designed around ideas, planning and everyday thinking.">
+<title>Notepoise | Where Thoughts Matter.</title>
+<meta name="description" content="Notepoise - distinctive notepads and stationery designed around ideas, planning and everyday thinking.">
 <style>
 :root{
   --ink:#5b4a58;--dark:#9a7c93;--wine:#d9a8b3;--wine2:#e7c6cd;--cream:#faf3f4;--paper:#fffcfc;
@@ -72,6 +72,13 @@ section{padding:95px 0}
 .filter.active,.filter:hover{background:var(--wine);color:#fff;border-color:var(--wine)}
 
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+/* The notepad collection becomes a scroll-controlled showcase. The page itself keeps scrolling normally before and after it. */
+.design-scroll{position:relative;height:400vh;margin-top:10px}
+.design-sticky{position:sticky;top:82px;height:calc(100vh - 82px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.design-sticky .grid{width:100%;height:100%;grid-template-columns:1fr;align-items:center;justify-items:center;position:relative}
+.design-sticky .card{width:min(520px,58vw);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);opacity:0;pointer-events:none;transition:opacity .45s ease,transform .6s cubic-bezier(.22,.8,.2,1)}
+.design-sticky .card.active{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.design-sticky .card-img{height:min(58vh,520px)}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;position:relative;transition:.35s;box-shadow:0 5px 20px rgba(154,124,147,.08)}
 .card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
 .card-img{height:350px;padding:10px;background:var(--dark);position:relative;overflow:hidden}
@@ -153,6 +160,7 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
 .quiz-restart{font-size:12px;text-decoration:underline;color:var(--muted);margin-top:10px;background:none;border:0}
 
 @media(max-width:950px){
+ .design-scroll{height:400vh}.design-sticky{top:68px;height:calc(100vh - 68px)}.design-sticky .card{width:min(520px,78vw)}.design-sticky .card-img{height:min(55vh,480px)}
  .links{display:none}.mobile{display:grid}.hero-grid,.story-grid,.newsletter{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.story{padding:45px}.footer-grid{grid-template-columns:1fr 1fr}.quiz-opts{gap:8px}
 }
 @media(max-width:600px){
@@ -165,7 +173,7 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
 
 <nav>
   <div class="container navin">
-    <a class="logo-image" href="#" aria-label="THE MITZEE EDIT"><img src="assets/logo.jpg" alt="THE MITZEE EDIT"></a>
+    <a class="logo-image" href="#" aria-label="Notepoise"><img src="image/logo.png" alt="Notepoise"></a>
     <div class="links">
       <a href="#shop">Shop</a><a href="#why">The Edit</a><a href="#ideas">Ideas</a><a href="#about">About</a>
     </div>
@@ -204,7 +212,7 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
   <div class="container">
     <div class="section-head">
       <div><div class="eyebrow">The collection / 01</div><h2>Pick a world.<br>Fill the page.</h2></div>
-      <p>Ten original design directions, built around the same idea: stationery should be useful enough to use and distinctive enough to keep.</p>
+      <p>Four original design directions, built around the same idea: stationery should be useful enough to use and distinctive enough to keep.</p>
     </div>
 
     <div class="quiz-card" id="quizCard">
@@ -215,27 +223,27 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
       <div class="quiz-step active" data-step="1">
         <div class="quiz-q">1. Your ideal weekend looks like...</div>
         <div class="quiz-opts">
-          <button class="quiz-opt" data-q="1" data-c="ride">A long ride, no destination</button>
-          <button class="quiz-opt" data-q="1" data-c="wild">A tent, a fire, no signal</button>
-          <button class="quiz-opt" data-q="1" data-c="soft">Pyjamas, a show, bubble tea</button>
-          <button class="quiz-opt" data-q="1" data-c="cosmic">Rewatching a sci-fi trilogy</button>
+          <button class="quiz-opt" data-q="1" data-c="travel">A long ride, no destination</button>
+          <button class="quiz-opt" data-q="1" data-c="travel">A tent, a fire, no signal</button>
+          <button class="quiz-opt" data-q="1" data-c="space">Pyjamas, a show, bubble tea</button>
+          <button class="quiz-opt" data-q="1" data-c="space">Rewatching a sci-fi trilogy</button>
         </div>
       </div>
       <div class="quiz-step" data-step="2">
         <div class="quiz-q">2. Pick a colour that calms you.</div>
         <div class="quiz-opts">
           <button class="quiz-opt" data-q="2" data-c="ocean">Deep sea blue</button>
-          <button class="quiz-opt" data-q="2" data-c="soft">Blush pink</button>
-          <button class="quiz-opt" data-q="2" data-c="fandom">Fired-up orange</button>
-          <button class="quiz-opt" data-q="2" data-c="wild">Forest green</button>
+          <button class="quiz-opt" data-q="2" data-c="space">Blush pink</button>
+          <button class="quiz-opt" data-q="2" data-c="anime">Fired-up orange</button>
+          <button class="quiz-opt" data-q="2" data-c="travel">Forest green</button>
         </div>
       </div>
       <div class="quiz-step" data-step="3">
         <div class="quiz-q">3. Your notes are usually about...</div>
         <div class="quiz-opts">
-          <button class="quiz-opt" data-q="3" data-c="fandom">Big goals, bigger grind</button>
-          <button class="quiz-opt" data-q="3" data-c="cosmic">Ideas nobody else gets yet</button>
-          <button class="quiz-opt" data-q="3" data-c="ride">Plans, routes, next stop</button>
+          <button class="quiz-opt" data-q="3" data-c="anime">Big goals, bigger grind</button>
+          <button class="quiz-opt" data-q="3" data-c="space">Ideas nobody else gets yet</button>
+          <button class="quiz-opt" data-q="3" data-c="travel">Plans, routes, next stop</button>
           <button class="quiz-opt" data-q="3" data-c="ocean">Feelings, slowly untangled</button>
         </div>
       </div>
@@ -249,15 +257,19 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
       <div class="filters">
         <button class="filter active" onclick="filterProducts('all',this)">All designs</button>
         <button class="filter" onclick="filterProducts('notepad',this)">Notepads</button>
-        <button class="filter" onclick="filterProducts('planner',this)">Planners</button>
+        <button class="filter" onclick="filterProducts('notepad',this)">Notepads</button>
       </div>
-      <div class="collection-count" id="collectionCount">10 designs</div>
+      <div class="collection-count" id="collectionCount">4 designs</div>
     </div>
 
-    <div class="grid" id="products"></div>
+    <div class="design-scroll" id="designScroll">
+      <div class="design-sticky">
+        <div class="grid" id="products"></div>
+      </div>
+    </div>
 
     <div class="feature-strip">
-      <div class="feature"><b>10 distinctive designs</b><span>Different visual worlds, from adventure and motorsport to space, sea and everyday planning.</span></div>
+      <div class="feature"><b>4 distinctive designs</b><span>Different visual worlds, from travel and space to the deep sea and focused action.</span></div>
       <div class="feature"><b>Made for actual writing</b><span>Functional sections, generous writing areas and layouts built around real use.</span></div>
       <div class="feature"><b>Designed to be kept</b><span>Stationery that feels like an object you want on your desk, not something you hide in a drawer.</span></div>
     </div>
@@ -272,9 +284,9 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
     </div>
     <div class="sample-showcase">
       <div class="sample-copy">
-        <span class="sample-number">THE MITZEE EDIT / SAMPLE</span>
-        <h3>THE ADVENTURE EDIT</h3>
-        <p>A themed layout that turns planning into part of the journey. The artwork is not decoration around the page - it is part of the experience.</p>
+        <span class="sample-number">Notepoise / SAMPLE</span>
+        <h3>THE TRAVEL EDIT</h3>
+        <p>A travel-inspired layout that turns planning and journaling into part of the journey. The artwork is part of the experience.</p>
         <div class="sample-points">
           <span>Distinctive visual identity</span>
           <span>Functional writing zones</span>
@@ -282,7 +294,7 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
         </div>
       </div>
       <div class="sample-image-wrap">
-        <img src="assets/adventure-notes.png" alt="Adventure Notes notepad design">
+        <img src="image/travel.png" alt="Adventure Notes notepad design">
       </div>
     </div>
   </div>
@@ -292,9 +304,9 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
   <div class="container">
     <div class="story">
       <div class="story-grid">
-        <div><div class="eyebrow" style="color:var(--wine2)">Why THE MITZEE EDIT</div><h2>Paper should feel worth picking up.</h2></div>
+        <div><div class="eyebrow" style="color:var(--wine2)">Why Notepoise</div><h2>Paper should feel worth picking up.</h2></div>
         <div>
-          <p>THE MITZEE EDIT is built around a simple belief: stationery can be functional without looking ordinary. Every design gives the page a visual identity while leaving the user room to think, plan, sketch and write.</p>
+          <p>Notepoise is built around a simple belief: stationery can be functional without looking ordinary. Every design gives the page a visual identity while leaving the user room to think, plan, sketch and write.</p>
           <div class="values">
             <div class="value"><strong>01 / Distinct</strong><span>Designs with a clear visual point of view.</span></div>
             <div class="value"><strong>02 / Useful</strong><span>Layouts made for everyday writing and planning.</span></div>
@@ -324,7 +336,7 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
     <div class="newsletter">
       <div><div class="eyebrow">The private list</div><h2>New designs.<br>First look.</h2></div>
       <div>
-        <p>Get first access to new collections, limited designs and stationery drops from THE MITZEE EDIT.</p>
+        <p>Get first access to new collections, limited designs and stationery drops from Notepoise.</p>
         <form class="form" onsubmit="subscribe(event)"><input id="email" type="email" placeholder="Your email address" required><button>Join</button></form>
         <small id="msg" style="display:block;margin-top:12px;color:var(--muted)"></small>
       </div>
@@ -336,12 +348,12 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
 <footer id="about">
   <div class="container">
     <div class="footer-grid">
-      <div><div class="logo-image" style="width:175px;height:75px"><img src="assets/logo.jpg" alt="THE MITZEE EDIT"></div><p>Stationery for ideas, plans and everything worth putting on paper.</p></div>
+      <div><div class="logo-image" style="width:175px;height:75px"><img src="image/logo.png" alt="Notepoise"></div><p>Stationery for ideas, plans and everything worth putting on paper.</p></div>
       <div><h4>SHOP</h4><a href="#shop">Notepads</a><br><a href="#shop">Planners</a><br><a href="#sample-design">Design story</a></div>
       <div><h4>THE EDIT</h4><a href="#why">Our approach</a><br><a href="#ideas">Ideas</a><br><a href="#about">About</a></div>
       <div><h4>HELP</h4><a href="#">Shipping</a><br><a href="#">Returns</a><br><a href="#">FAQs</a></div>
     </div>
-    <div class="copy">© 2026 THE MITZEE EDIT. All rights reserved.</div>
+    <div class="copy">© 2026 Notepoise. All rights reserved.</div>
   </div>
 </footer>
 
@@ -360,22 +372,16 @@ footer p,footer a{font-size:12px;color:var(--muted);line-height:1.8}footer h4{fo
 
 <script>
 const products=[
-{id:1,name:"Adventure Notes",cat:"notepad",vibe:"wild",price:349,badge:"Bestseller",desc:"Adventure themed notepad",image:"assets/adventure-notes.png"},
-{id:2,name:"Ducati Rider's Journal",cat:"notepad",vibe:"ride",price:449,badge:"Popular",desc:"Motorsport themed notepad",image:"assets/ducati-riders-journal.png"},
-{id:3,name:"Warrior's Path",cat:"notepad",vibe:"fandom",price:399,badge:"Bestseller",desc:"Warrior themed notepad",image:"assets/warriors-path.png"},
-{id:4,name:"Desert Trail Journal",cat:"notepad",vibe:"wild",price:349,badge:"New",desc:"Desert themed notepad",image:"assets/desert-trail-journal.png"},
-{id:5,name:"My Daily Plan",cat:"planner",vibe:"soft",price:329,badge:"Popular",desc:"Daily planning notepad",image:"assets/my-daily-plan.png"},
-{id:6,name:"Bloom Your Day",cat:"planner",vibe:"soft",price:329,badge:"New",desc:"Self-care planning notepad",image:"assets/bloom-your-day.png"},
-{id:7,name:"Across the Multiverse",cat:"notepad",vibe:"cosmic",price:449,badge:"Bestseller",desc:"Cosmic themed notepad",image:"assets/across-the-multiverse.png"},
-{id:8,name:"Deep Sea Notes",cat:"notepad",vibe:"ocean",price:399,badge:"Popular",desc:"Ocean themed notepad",image:"assets/deep-sea-notes.png"},
-{id:9,name:"Mission Log",cat:"notepad",vibe:"cosmic",price:399,badge:"New",desc:"Space themed notepad",image:"assets/mission-log.png"},
-{id:10,name:"Royal Enfield Bullet Rider's Journal",cat:"notepad",vibe:"ride",price:449,badge:"Bestseller",desc:"Classic rider's journal",image:"assets/royal-enfield-bullet.png"}
+{id:1,name:"Today's Journey",cat:"notepad",vibe:"travel",price:349,badge:"Bestseller",desc:"Travel themed notepad",image:"image/travel.png"},
+{id:2,name:"Today's Mission",cat:"notepad",vibe:"space",price:399,badge:"New",desc:"Space themed notepad",image:"image/space.png"},
+{id:3,name:"Ocean Quest",cat:"notepad",vibe:"ocean",price:399,badge:"Popular",desc:"Deep sea themed notepad",image:"image/deep-sea.png"},
+{id:4,name:"Today's Power Move",cat:"notepad",vibe:"anime",price:399,badge:"Bestseller",desc:"Warrior themed notepad",image:"image/anime.png"}
 ];
 let cart=[];
 
 function renderProducts(list=products){
- document.getElementById("products").innerHTML=list.map(p=>`
- <article class="card">
+ document.getElementById("products").innerHTML=list.map((p,i)=>`
+ <article class="card ${i===0?"active":""}">
    <div class="card-img">
      <span class="badge">${p.badge}</span>
      <img src="${p.image}" alt="${p.name}" loading="lazy">
@@ -391,10 +397,30 @@ function renderProducts(list=products){
  </article>`).join("");
  document.getElementById("collectionCount").textContent=list.length+" design"+(list.length===1?"":"s");
 }
+let designIndex=0;
+function updateDesignFromScroll(){
+ const area=document.getElementById("designScroll");
+ if(!area)return;
+ const rect=area.getBoundingClientRect();
+ const max=Math.max(1,rect.height-window.innerHeight);
+ const progress=Math.min(1,Math.max(0,-rect.top/max));
+ const list=document.querySelectorAll("#products .card");
+ if(!list.length)return;
+ const next=Math.min(list.length-1,Math.floor(progress*list.length));
+ if(next!==designIndex){
+   designIndex=next;
+   list.forEach((card,i)=>card.classList.toggle("active",i===designIndex));
+ }
+}
+window.addEventListener("scroll",updateDesignFromScroll,{passive:true});
+window.addEventListener("resize",updateDesignFromScroll);
+
 function filterProducts(cat,el){
  document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
  el.classList.add("active");
  renderProducts(cat==="all"?products:products.filter(p=>p.cat===cat));
+ designIndex=0;
+ updateDesignFromScroll();
 }
 function addToCart(id){
  const item=cart.find(x=>x.id===id);
@@ -426,7 +452,7 @@ function checkout(){
 }
 function subscribe(e){
  e.preventDefault();
- document.getElementById("msg").textContent="You're on the list. Welcome to THE MITZEE EDIT.";
+ document.getElementById("msg").textContent="You're on the list. Welcome to Notepoise.";
  e.target.reset();
 }
 
@@ -465,7 +491,7 @@ document.getElementById("quizRestart").addEventListener("click",()=>{
  goToQuizStep(1);
 });
 
-renderProducts();renderCart();
+renderProducts();renderCart();updateDesignFromScroll();
 </script>
 </body>
 </html>
